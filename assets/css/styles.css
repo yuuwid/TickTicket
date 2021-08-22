@@ -1,0 +1,31 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+.jum-dashboard {
+    background-image: url('../../assets/img/home-dashboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 650px;
+    color: white;
+}
+
+.jum-pesawat {
+    background-image: url('../../assets/img/pesawat-dashboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: white;
+}
+
+.jum-keretaapi {
+    background-image: url('../../assets/img/keretaapi-dashboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    color: white;
+}
