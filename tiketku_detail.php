@@ -26,8 +26,9 @@
                 <p class="col col-7 col-md-8 col-lg-9"><?= rupiah($data_history['total_bayar']) ?></p>
             </div>
         </div>
-        <div class="p-3 mt-2">
+        <div class="mt-2">
 
+        <?php if( $jenis == 'tiket pesawat' || $jenis == 'tiket kereta api'): ?>
             <div class="row row-cols-1 row-cols-md-<?php echo ($data_tiket2 == null ? "1" : "2") ?>">
                 <section class="p-3 card">
                     <h5 class="text-center">Berangkat</h5>
@@ -90,10 +91,42 @@
                     </section>
                 <?php endif; ?>
             </div>
+        <?php else: ?>
+                <div class="card p-3">
+                    <h5><b>Informasi</b></h5>
+                    <div class="row row-cols-1 row-cols-md-2">
+
+                        <div class="col col-md-4">
+                            <p><b>Hotel</b></p>
+                        </div>
+                        <div class="col col-md-8">
+                            <p><b><?= $data_hotel['nama_penginapan'] ?></b></p>
+                        </div>
+
+                        <div class="col col-md-4">
+                            <p><b>Alamat Hotel</b></p>
+                        </div>
+                        <div class="col col-md-8">
+                            <p><b><?= $data_hotel['alamat'] . ' ' . $data_hotel['kota']  ?> </b></p>
+                        </div>
+
+                        <div class="col col-md-4">
+                            <p><b>Kamar</b></p>
+                        </div>
+                        <div class="col col-md-8">
+                            <p><b><?= ($data_history['data'] == null) ? $kamar['kamar'] . ' - ?' : $kamar['kamar'] . ' - ' . $data_his ?> </b></p>
+                        </div>
+                        
+                    </div>
+                </div>
+
+        <?php endif; ?>
+
+            
         </div>
 
-        <div class="text-center">
-            <a href="tiketku_cetak.php?id=<?= $data_history['id'] ?>" class="btn btn-info"><i class="fa fa-print mr-1"></i> Cetak</a>
+        <div class="text-center mt-3">
+            <a href="tiketku_cetak.php?id=<?= $data_history['id'] ?>&jenis=<?= strtolower($data_history['jenis']) ?>" class="btn btn-info"><i class="fa fa-print mr-1"></i> Cetak</a>
         </div>
     </div>
 </div>

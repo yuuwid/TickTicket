@@ -32,58 +32,95 @@
         return $grup[array_rand($grup)];
     }
 
+
+    if(!isset($_GET["id"]) || !isset($_GET["jenis"])){
+        header('Location: tiketku.php');
+    }
+
+
     $id = $_SESSION["id"];
     $data = fetchAssoc(query("SELECT * FROM users WHERE id='$id'"), SINGLE);
     unset($data['password']);
     
-    $id_trans = $_GET["id"];
-    $data_history = fetchAssoc(query("SELECT * FROM history_transaksi WHERE id='$id_trans'"), SINGLE);
-    $id_trans = $data_history['id'];
+    $jenis = $_GET["jenis"];
 
-
-    // check data_penumpang in data_history
-    if ( $data_history['data_penumpang'] != null){
-        header('Location: tiketku_cetak.php?id='.$id_trans);
-    }
-
-
-    if( isset($_POST["simpan"]) ){
-        $post = $_POST;
-
-        $n = $data_history['penumpang'];
-
-        $arr = [];
-
-        $getseat = getSeat($data_history['data_penumpang']);
-        if( $data_history['jenis'] == 'Tiket Pesawat' ){
-            $getgrup = getGrup(ALPH, 4);
-        } else if( $data_history['jenis'] == 'Tiket Kereta Api' ){
-            $getgrup = getGrup(NUM, 9);
+    if( $jenis == 'tiket pesawat' || $jenis == 'tiket kereta api'){
+        $id_trans = $_GET["id"];
+        $data_history = fetchAssoc(query("SELECT * FROM history_transaksi WHERE id='$id_trans'"), SINGLE);
+        $id_trans = $data_history['id'];
+        
+        // check data_penumpang in data_history
+        if ( $data_history['data_penumpang'] != null){
+            header('Location: tiketku_cetak.php?id='.$id_trans);
+        }    
+    
+        if( isset($_POST["simpan"]) ){
+            $post = $_POST;
+    
+            $n = $data_history['penumpang'];
+    
+            $arr = [];
+    
+            $getseat = getSeat($data_history['data_penumpang']);
+            if( $data_history['jenis'] == 'Tiket Pesawat' ){
+                $getgrup = getGrup(ALPH, 4);
+            } else if( $data_history['jenis'] == 'Tiket Kereta Api' ){
+                $getgrup = getGrup(NUM, 9);
+            }
+    
+            for ($i=1; $i <= $n ; $i++) {
+                $nama_lengkap = $post["nama_lengkap".$i];
+                $nik = $post["nik".$i];
+                $seat = $getseat++;
+                $grup = $getgrup;
+    
+                $arr[] = [
+                    'nama_lengkap' => $nama_lengkap,
+                    'nik' => $nik,
+                    'seat' => $seat,
+                    'grup' => $grup
+                ]; 
+            }
+            $json = json_encode($arr);
+            
+            $query = "UPDATE history_transaksi SET data_penumpang='$json' WHERE id='$id_trans'";
+            query($query);
+    
+            echo "
+                <script>
+                    alert('Berhasil disimpan');
+                    window.location.href = 'tiketku.php';
+                </script>            
+            ";
+    
         }
 
-        for ($i=1; $i <= $n ; $i++) {
-            $nama_lengkap = $post["nama_lengkap".$i];
-            $nik = $post["nik".$i];
-            $seat = $getseat++;
-            $grup = $getgrup;
+    } else if ( $jenis == 'hotel' ){
+        $id_trans = $_GET["id"];
+        $data_history = fetchAssoc(query("SELECT * FROM akomodasi_history_transaksi WHERE id='$id_trans'"), SINGLE);
+    
 
+        if(isset($_POST["simpan"])){
+        
+            $nama_lengkap = $_POST["nama_lengkap"];
+            $nik = $_POST["nik"];
+    
             $arr[] = [
                 'nama_lengkap' => $nama_lengkap,
                 'nik' => $nik,
-                'seat' => $seat,
-                'grup' => $grup
+                'no_kamar' => ''
             ]; 
+            $json = json_encode($arr);
+            
+            $query = "UPDATE akomodasi_history_transaksi SET data='$json' WHERE id='$id_trans'";
+            query($query);
+    
+            echo "
+                <script>
+                    alert('Berhasil disimpan');
+                    window.location.href = 'tiketku.php';
+                </script>
+            ";
         }
-        $json = json_encode($arr);
-        
-        $query = "UPDATE history_transaksi SET data_penumpang='$json' WHERE id='$id_trans'";
-        query($query);
-
-        echo "
-            <script>
-                alert('Berhasil disimpan');
-                window.location.href = 'tiketku_cetak.php?id=". $id_trans ."';
-            </script>            
-        ";
 
     }
