@@ -17,7 +17,7 @@
         // check cookie remember me
         if (isset($_COOKIE[hash('md5', 'rememberme')])) {
             $id = $_COOKIE[hash('md5', 'rememberme')];
-            $role = fetchAssoc(query("SELECT role FROM users WHERE id='$id'", SINGLE))['role'];
+            $role = fetchAssoc(query("SELECT role FROM users WHERE id='$id'", SINGLE))[0]['role'];
 
             // check role account
             checkRole($role);

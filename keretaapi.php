@@ -6,12 +6,12 @@
 
 <div class="jumbotron jumbotron-fluid jum-keretaapi mt-5 pt-5">
     <div class="container">
-        <h1 class="display-5"><b>Mau Kemana?</b></h1>
+        <h1 class="display-5 pt-4"><b>Mau Kemana?</b></h1>
         <p class="lead">Pesan Tiket Berangkat dan Pulang pun bisa.</p>
     </div>
 </div>
 
-<div class="container pb-5" style="margin-top: -100px;">
+<div class="container pb-5" style="margin-top: -200px;">
 
     <div class="card p-4 pt-5 pb-5">
 
@@ -61,7 +61,7 @@
             </div>
             <div class="text-right">
 
-                <button id="caritiket" name="cari" type="submit" class="btn btn-info ">Cari <i class="fa fa-paper-plane"></i></button>
+                <a href="#pilihtiketsK" class="text-decoration-none"><button id="caritiket" name="cari" type="submit" class="btn btn-info ">Cari <i class="fa fa-paper-plane"></i></button></a>
             </div>
         </form>
 
@@ -70,7 +70,7 @@
     <!-- Pilih Tiket -->
     <?php if (isset($data_tikets)) : ?>
         <div class="card p-5 mt-2">
-            <div class="row row-cols-1 row-cols-md-1 row-cols-lg-2">
+            <div id="pilihtiketsK" class="row row-cols-1 row-cols-md-1 row-cols-lg-2">
 
                 <?php foreach ($data_tikets as $tiket) : ?>
                     <div class="col card p-3">
@@ -226,7 +226,7 @@
             <h5 class="text-center text-uppercase mt-4"><b>BIODATA</b></h5>
             <hr>
             <div class="container card p-3">
-                <form method="POST" action="checkout.php?jenis=Tiket%20Kereta%20Api">
+                <form method="POST" action="tiket_checkout.php?jenis=Tiket%20Kereta%20Api">
                     <input name="idb" type="hidden" value="<?= $id_tiket_berangkat ?>">
                     <input name="idp" type="hidden" value="<?= $id_tiket_pulang ?>">
                     <input name="penumpang" type="hidden" value="<?= $penumpang ?>">

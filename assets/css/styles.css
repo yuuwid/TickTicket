@@ -17,7 +17,7 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 550px;
     color: white;
 }
 
@@ -26,6 +26,42 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 400px;
+    height: 550px;
     color: white;
 }
+
+.jum-hotel {
+    background-image: url('../../assets/img/home-dashboard.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 550px;
+    color: white;
+}
+
+.strikearound {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+}
+.strikearound:before, .strikearound:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: grey;
+}
+.strikearound:before {
+    margin-left: -50%;
+    text-align: right;
+}
+
+div.scroll { 
+    margin: 4px, 4px; 
+    padding: 4px; 
+    overflow: auto; 
+    white-space: nowrap; 
+} 

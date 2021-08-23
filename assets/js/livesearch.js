@@ -54,3 +54,9 @@ $(document).ready(function(){
         livesearch('tujuan', 'keretaKe', 'data-search-ke', 'search-box-ke', "data_kereta.php")
     })
 })
+
+$(document).ready(function(){
+    $('#hotelKota').on('click', function(){
+        livesearch(['kota', 'Hotel'], 'hotelKota', 'data-search-kota', 'search-box-kota', "data_hotel.php")
+    })
+})

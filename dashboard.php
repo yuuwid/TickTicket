@@ -27,7 +27,7 @@
         <?php endif; ?>
     </div>
 </div>
-<div id="rekom" class="container pb-4 pr-5 pl-5" style="margin-top: -85px;">
+<div id="rekom" class="container pb-4 pr-5 pl-5" style="margin-top: -150px;">
     <div class="card justify-content-center p-3 sansserif">
         <section class="content">
             <h5>Rekomendasi untuk anda</h5>
@@ -50,7 +50,7 @@
     </div>
 </div>
 
-<div class="container-fluid pl-5 pr-5">
+<div class="container-fluid pl-5 pr-5 pb-5">
     <div class="card p-4">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam explicabo hic, quibusdam ut excepturi ex! Excepturi nulla veritatis, delectus tempora molestias tenetur nam modi aspernatur deserunt facere corrupti fugit magni?
     </div>

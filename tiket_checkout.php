@@ -1,6 +1,6 @@
 <?php require_once 'admin/core/init.php'; ?>
 
-<?php require_once 'a_checkout.php'; ?>
+<?php require_once 'a_tiket_checkout.php'; ?>
 
 <?php include 'partials/main_header.php'; ?>
 

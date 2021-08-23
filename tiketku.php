@@ -4,6 +4,11 @@
 
 <?php include 'partials/main_header.php'; ?>
 
+<!-- <div class="m-5 p-5">
+<?php var_dump($dd) ?>
+
+</div> -->
+
 <div class="container pb-5 mt-5 pt-5">
     <div class="card p-4">
         <h3><b>Histori Transaksi</b></h3>
@@ -25,7 +30,7 @@
                     <td><?= $his['jenis'] ?></td>
                     <td><?= rupiah($his['total_bayar']) ?></td>
                     <td><?= $his['tanggal_transaksi'] ?></td>
-                    <?php if( $his['data_penumpang'] == null ): ?>
+                    <?php if( isset($his['data_penumpang']) == null || isset($his['data'])): ?>
                         <td class="text-center row">
                             <a href="tiketku_detail.php?id=<?= $his['id'] ?>" type="button" class="col btn btn-sm btn-warning text-light w-100" data-toggle="tooltip" data-placement="bottom" title="Lengkapi data"><i class="fa fa-lock"></i></a>
                         </td>
