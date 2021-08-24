@@ -14,6 +14,8 @@
     define('UNAME_ERROR', 53);
     define('PASS_ERROR', 58);
     define('EMAIL_ERROR', 78);
+    define('PIN_ERROR', 75);
+    define('DB_ERROR', 99);
 
     define('NOFILE_ERROR', 98);
     define('TYPEFILE_ERROR', 85);

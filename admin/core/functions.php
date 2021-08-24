@@ -159,3 +159,14 @@
 
         return update();
     }
+
+
+
+
+    function hapusAkun($id){
+        $query = "DELETE FROM users WHERE id='$id'";
+
+        query($query);
+
+        return update();
+    }
