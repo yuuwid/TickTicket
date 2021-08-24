@@ -20,12 +20,12 @@
             $role = fetchAssoc(query("SELECT role FROM users WHERE id='$id'", SINGLE))[0]['role'];
 
             // check role account
-            checkRole($role);
 
             // create session
             $_SESSION["log"] = true;
             $_SESSION["id"] = $id;
             $_SESSION["role"] = $role;
+            checkRole($role);
         }
         // check status login 
         if (isset($_SESSION['log'])) {

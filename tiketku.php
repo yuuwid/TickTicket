@@ -37,7 +37,7 @@
                     <?php else: ?>
                         <td class="text-center row">
                             <a href="tiketku_detail.php?id=<?= $his['id'] ?>&jenis=<?= strtolower($his['jenis']) ?>" type="button" class="col btn btn-sm btn-info w-100" data-toggle="tooltip" data-placement="bottom" title="Detail"><i class="fa fa-info"></i></a>
-                            <a href="tiketku_cetak.php?id=<?= $his['id'] ?>&jenis=<?= strtolower($his['jenis']) ?>" type="button" class="col btn btn-sm btn-primary w-100 ml-1 text-light" data-toggle="tooltip" data-placement="bottom" title="Cetak"><i class="fa fa-print"></i></a>
+                            <a href="tiketku_cetak.php?id=<?= $his['id'] ?>&jenis=<?= strtolower($his['jenis']) ?>" type="button" class="col btn btn-sm btn-primary w-100 ml-md-1 mt-sm-1 mt-md-0 text-light" data-toggle="tooltip" data-placement="bottom" title="Cetak"><i class="fa fa-print"></i></a>
                         </td>
                     <?php endif; ?>
                 </tr>                

@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md navbar-dark bg-red">
+	<nav class="navbar navbar-expand-md navbar-dark bg-red fixed-top">
 		<a class="navbar-brand pl-4 pr-4" href="./"><i class="fa fa-at"></i> <b>TickTicket</b></a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -40,7 +40,7 @@
 				<a type="button" class="btn dropdown-toggle mr-sm-2 text-light" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Akun
 				</a>
-				<div class="dropdown-menu dropdown-menu-right">
+				<div class="dropdown-menu dropdown-menu-left dropdown-menu-md-right">
 				<a class="dropdown-item" href="profile.php"><i class="fa fa-user pr-2"></i> Profile</a>
 				<a class="dropdown-item" href="tiketku.php"><i class="fa fa-box-open pr-2"></i> Tiketku</a>
 

@@ -8,8 +8,6 @@
     <div class="container">
         <h1 class="display-4"><b>Selamat Datang</b> <?= $data['nama'] ?>.</h1>
         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo in nulla assumenda odio molestiae reiciendis, dolor praesentium distinctio nam fugit ipsum, explicabo a nobis odit blanditiis reprehenderit,
-            <br><br>
-            <small>sapiente placeat quidem esse! Nulla, laborum autem dolores sunt quisquam doloribus fugit beatae quaerat asperiores maxime ipsa inventore non, exercitationem eligendi voluptate</small>
         </p>
         <div class="dropdown-divider pt-2 pb-2"></div>
 

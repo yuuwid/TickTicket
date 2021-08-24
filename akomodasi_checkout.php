@@ -26,7 +26,7 @@
                 <input type="hidden" name="pesan" value="<?= $data_transaksi['pesan'] ?>">
                 <button name="selesai" type="submit" class="btn btn-success btn-sm mt-2">Selesai</button>
             </form>
-            <p>Setelah melakukan transaksi, jangan lupa untuk mengisi data pribadi anda di Menu <b>"Booking"</b> =D</p>
+            <p>Setelah melakukan transaksi, jangan lupa untuk mengisi data pribadi anda di Menu <b>"Tiketku"</b> =D</p>
         </div>
         <div class="card-footer text-muted">
             TickTicket

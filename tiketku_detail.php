@@ -91,7 +91,7 @@
                     </section>
                 <?php endif; ?>
             </div>
-        <?php else: ?>
+        <?php elseif( $jenis == 'hotel' ): ?>
                 <div class="card p-3">
                     <h5><b>Informasi</b></h5>
                     <div class="row row-cols-1 row-cols-md-2">

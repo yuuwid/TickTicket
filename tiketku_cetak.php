@@ -8,7 +8,7 @@
     <div class="card p-4">
         <p><a href="tiketku.php"><i class="fa fa-angle-left"></i> kembali</a></p>
         <h4><b>Cetak Transaksi</b></h4>
-        <table class="table table-bordered w-50">
+        <table class="table table-bordered">
             <tr>
                 <td>ID Transaksi</td>
                 <td><?= $data_history['id'] ?></td>
@@ -20,9 +20,9 @@
         </table>
         <form action="" method="post">
             <input type="hidden" name="">
-            <a href="tiketku_print.php?id=<?= $data_history['id'] ?>&print=" target="_BLANK" name="print" class="btn btn-info"><i class="fa fa-print pr-2"></i> Print</a>
+            <a href="tiketku_print.php?id=<?= $data_history['id'] ?>&jenis=<?= strtolower($data_history['jenis']) ?>&print=" target="_BLANK" name="print" class="btn btn-info"><i class="fa fa-print pr-2"></i> Print</a>
         </form>
-        <iframe class="mt-3" src="tiketku_print.php?id=<?= $data_history['id'] ?>" height="300px"></iframe>
+        <iframe class="mt-3" src="tiketku_print.php?id=<?= $data_history['id'] ?>&jenis=<?= strtolower($data_history['jenis']) ?>" height="300px"></iframe>
     </div>
 </div>
 

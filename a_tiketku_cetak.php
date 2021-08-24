@@ -39,7 +39,7 @@
         } else if ( $jenis == 'Tiket Kereta Api'  ){
             $data_tiket1 = fetchAssoc(query("SELECT * FROM tiket_kereta WHERE id='$id_tiket_1'"), SINGLE);
             $data_tiket2 = fetchAssoc(query("SELECT * FROM tiket_kereta WHERE id='$id_tiket_2'"), SINGLE);
-        }     
+        }
         
         
 
@@ -50,7 +50,22 @@
         if ( $data_history['data'] == null ){
             header('Location: tiketku_databeequipped.php?id=' . $data_history['id'] . '&jenis=' . $jenis);
         }
+        $id_penginapan = $data_history['id_penginapan'];
+        $id_kamar = $data_history['id_kamar'];
+        $data_hotel = fetchAssoc(query("SELECT * FROM akomodasi_penginapan WHERE id='$id_penginapan'"), SINGLE);
 
+        $data_kamar = $data_hotel['kamar'];
+        $data_kamar = json_decode($data_kamar, true);
+
+        foreach( $data_kamar as $dk ){
+            if( $dk['id_kamar'] == $id_kamar ){
+                $data_kamar = $dk;
+                break;
+            }
+        }
+
+        $nik = json_decode($data_history['data'], true)[0];
+        $nik = $nik['nik'];
     }
 
 
