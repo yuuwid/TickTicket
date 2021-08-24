@@ -65,3 +65,32 @@ div.scroll {
     overflow: auto; 
     white-space: nowrap; 
 } 
+
+
+.surabaya, .malang, .jogja, .bali {
+    background-image: url("../img/surabaya.jpg");
+    opacity: 0.4;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 150px;
+    min-width: 300px;
+    text-shadow: 10px;
+    text-shadow:  0 0 1px black;
+}
+.surabaya:hover, .malang:hover, .jogja:hover, .bali:hover {
+    opacity: 0.8;
+}
+
+.surabaya {
+    background-image: url("../img/surabaya.jpg");
+}
+.malang {
+    background-image: url("../img/malang.jpg");
+}
+.jogja {
+    background-image: url("../img/jogja.jpg");
+}
+.bali {
+    background-image: url("../img/bali.jpg");
+}

@@ -26,11 +26,22 @@
 				<li class="nav-item">
 					<a class="nav-link" href="./">Home</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pesan Tiket</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="pesanTiketdropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Pesan Tiket
+					</a>
+					<div class="dropdown-menu" aria-labelledby="pesanTiketdropdown">
+						<a class="dropdown-item" href="tiket.php?jenis=pesawat">Tiket Pesawat</a>
+						<a class="dropdown-item" href="tiket.php?jenis=keretaapi">Tiket Kereta Api</a>
+					</div>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pesan Akomodasi</a>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="pesanHoteldropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Pesan Akomodasi
+					</a>
+					<div class="dropdown-menu" aria-labelledby="pesanHoteldropdown">
+						<a class="dropdown-item" href="akomodasi.php?jenis=hotel">Hotel</a>
+					</div>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="tiketku.php">Tiketku</a>
@@ -41,12 +52,12 @@
 					Akun
 				</a>
 				<div class="dropdown-menu dropdown-menu-left dropdown-menu-md-right">
-				<a class="dropdown-item" href="profile.php"><i class="fa fa-user pr-2"></i> Profile</a>
-				<a class="dropdown-item" href="tiketku.php"><i class="fa fa-box-open pr-2"></i> Tiketku</a>
+					<a class="dropdown-item" href="profile.php"><i class="fa fa-user pr-2"></i> Profile</a>
+					<a class="dropdown-item" href="tiketku.php"><i class="fa fa-box-open pr-2"></i> Tiketku</a>
 
-				<div class="dropdown-divider"></div>
-				<a class="dropdown-item" href="logout.php"><i class="fa fa-feather pr-2"></i> Keluar</a>
-				
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="logout.php"><i class="fa fa-feather pr-2"></i> Keluar</a>
+
 				</div>
 			</div>
 		</div>

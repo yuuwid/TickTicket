@@ -52,3 +52,27 @@ if( checkPulang != null ){
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+Date.prototype.toDateInputValue = (function() {
+    var local = new Date(this);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+});
+
+Date.prototype.toDateInputValue2 = (function() {
+    var local = new Date(this);
+    local.setDate(local.getDate() + 1);
+    console.log(local);
+    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+    return local.toJSON().slice(0,10);
+});
+
+const date1 = document.getElementById('datePicker')
+const date2 = document.getElementById('datePicker2')
+
+if (date1 != null){
+    date1.value = new Date().toDateInputValue();
+}
+if (date2 != null){
+    date2.value = new Date().toDateInputValue2();
+}

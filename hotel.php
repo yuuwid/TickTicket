@@ -53,7 +53,6 @@
 				</div>
 			</div>
 			<div class="text-right">
-
 				<a href="#pilihhotel" class="text-decoration-none"><button id="caritiket" name="cari" type="submit" class="btn btn-info ">Cari <i class="fa fa-paper-plane"></i></button></a>
 			</div>
 		</form>
@@ -115,8 +114,8 @@
 								<form method="POST" action="" class="text-right">
 									<input type="hidden" name="idhtl" value="<?= $hotel['id'] ?>">
 
-									<a type="button" class="btn btn-link text-info" data-toggle="modal" data-target="#detailHotel">Detail <i class="fa fa-info fa-sm"></i></a>
-									<button type="submit" class="btn btn-link" name="pilihkamar">Pilih Kamar<i class="fa fa-caret-right"></i></button>
+									<a type="button" class="btn btn-link text-info text-decoration-none" data-toggle="modal" data-target="#detailHotel">Detail <i class="fa fa-info fa-sm pl-1"></i></a>
+									<button type="submit" class="btn btn-link text-decoration-none" name="pilihkamar">Pilih Kamar<i class="fa fa-caret-right pl-1"></i></button>
 								</form>
 							</div>
 						</div>
@@ -202,7 +201,6 @@
 		</div>
 		<div class="card pr-0 pl-0 p-3 shadow">
 			<!-- read JSON field -->
-			<!-- <?php var_dump($data_penginapan2) ?> -->
 			<?php $data_kamar = json_decode($data_kamar, true) ?>
 			<div class="container row row-cols-1 row-cols-md-2 p-0">
 				<section class="col col-md-5 pt-2">
@@ -270,6 +268,78 @@
 
 	<?php endif; ?>
 
+</div>
+
+<div class="container card shadow">
+	<h5 class="mt-3"><b>Rekomendasi</b></h5>
+	<div class="dropdown-divider"></div>
+	<div class="p-2 pl-sm-4 pr-sm-4 row row-cols-1 row-cols-md-4 justify-content-around">
+
+		<form action="" method="post" class="card col surabaya shadow m-3 p-0">
+			<input name="kota" type="hidden" value="Surabaya">
+			<input name="checkin" id="datePicker" type="hidden">
+			<input name="checkout" id="datePicker2" type="hidden">
+			<input name="kamar" type="hidden" value="1">
+			<input name="tamu" type="hidden" value="1">
+			<button name="cari" type="submit" href="#pilihhotel" class="btn btn-link  text-decoration-none" style="width: 100%; height: 100%;">
+				<section class="text-left text-light">
+					<h6>Pesan Hotel terbaik di</h6>
+				</section>
+				<section class="text-left text-light pt-3">
+					<h3>Surabaya</h3>
+				</section>
+			</button>
+		</form>
+
+		<form action="" method="post" class="card col malang shadow m-3 p-0">
+			<input name="kota" type="hidden" value="Malang">
+			<input name="checkin" id="datePicker" type="hidden">
+			<input name="checkout" id="datePicker2" type="hidden">
+			<input name="kamar" type="hidden" value="1">
+			<input name="tamu" type="hidden" value="1">
+			<button name="cari" type="submit" href="#pilihhotel" class="btn btn-link  text-decoration-none" style="width: 100%; height: 100%;">
+				<section class="text-left text-light">
+					<h6>Pesan Hotel terbaik di</h6>
+				</section>
+				<section class="text-left text-light pt-3">
+					<h3>Malang</h3>
+				</section>
+			</button>
+		</form>
+
+		<form action="" method="post" class="card col bali shadow m-3 p-0">
+			<input name="kota" type="hidden" value="Bali">
+			<input name="checkin" id="datePicker" type="hidden">
+			<input name="checkout" id="datePicker2" type="hidden">
+			<input name="kamar" type="hidden" value="1">
+			<input name="tamu" type="hidden" value="1">
+			<button name="cari" type="submit" href="#pilihhotel" class="btn btn-link  text-decoration-none" style="width: 100%; height: 100%;">
+				<section class="text-left text-light">
+					<h6>Pesan Hotel terbaik di</h6>
+				</section>
+				<section class="text-left text-light pt-3">
+					<h3>Bali</h3>
+				</section>
+			</button>
+		</form>
+
+		<form action="" method="post" class="card col jogja shadow m-3 p-0">
+			<input name="kota" type="hidden" value="Jogja">
+			<input name="checkin" id="datePicker" type="hidden">
+			<input name="checkout" id="datePicker2" type="hidden">
+			<input name="kamar" type="hidden" value="1">
+			<input name="tamu" type="hidden" value="1">
+			<button name="cari" type="submit" href="#pilihhotel" class="btn btn-link  text-decoration-none" style="width: 100%; height: 100%;">
+				<section class="text-left text-light">
+					<h6>Pesan Hotel terbaik di</h6>
+				</section>
+				<section class="text-left text-light pt-3">
+					<h3>Jogja</h3>
+				</section>
+			</button>
+		</form>
+
+	</div>
 </div>
 
 
