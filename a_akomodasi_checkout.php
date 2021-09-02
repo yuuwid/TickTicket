@@ -47,7 +47,7 @@
 
 
         $in = round(abs(strtotime($checkout) - strtotime($checkin)) / (60*60*24),0);
-        $totalbayar = ($harga - ($harga * $diskon / 100)) * $in;  
+        $totalbayar = ($harga - ($harga * $diskon / 100)) * $in;
 
         $query = "INSERT INTO akomodasi_history_transaksi(id_user, jenis, id_penginapan, id_kamar, kamar, tamu, checkin, checkout, total_bayar) VALUES(
             '$id', 'Hotel', '$id_hotel', '$id_kamar', '$kamar', '$tamu', '$checkin', '$checkout', '$totalbayar'

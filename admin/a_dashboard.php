@@ -6,6 +6,13 @@
 
     $id = $_SESSION["id"];
     $data = fetchAssoc(query("SELECT * FROM users WHERE id='$id'"), SINGLE);
+    unset($data['password']);
+    $role = $data['role'];
+
+    if ($role != ADMIN_ROLE){
+        header("Location: ../index.php");
+    }
+
     $pin = $data["pin"];
     unset($data['password']);
 
@@ -19,11 +26,20 @@
     while( $row = mysqli_fetch_assoc($result)){
         array_push($histori, $row);
     }
-
+    
     usort($histori, function($a, $b){
-        return strtotime($b['tanggal_transaksi']) <=> strtotime($a['tanggal_transaksi']);
+        $ad = new DateTime($a['tanggal_transaksi']);
+        $bd = new DateTime($b['tanggal_transaksi']);
+      
+        if ($ad == $bd) {
+          return 0;
+        }
+      
+        return $ad > $bd ? -1 : 1;
     });
     
+    
+
 
     //
     if ( isset($_POST["hapus"]) ){
@@ -31,12 +47,20 @@
         if ( $_POST["pin"] != $pin ){
             $error = [true, PIN_ERROR];
         } else {
-            hapusAkun($_POST['id']);
-            if ( hapusAkun($_POST['id']) > 0 ){
-                $error = [false, 0];
-                header('Location: index.php');
-            } else {
-                $error = [true, DB_ERROR];
+            if (isset($_POST["hapus_id"])){
+                if ( hapusAkun($_POST['hapus_id']) > 0 ){
+                    $error = [false, 0];
+                    header('Location: index.php');
+                } else {
+                    $error = [true, DB_ERROR];
+                }
+            } else if (isset($_POST["'bann_id'"])){
+                if ( nonaktifAkun($_POST['bann_id']) > 0 ){
+                    $error = [false, 0];
+                    header('Location: index.php');
+                } else {
+                    $error = [true, DB_ERROR];
+                }
             }
         }
         unset($_POST);

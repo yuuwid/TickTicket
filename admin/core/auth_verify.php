@@ -2,7 +2,7 @@
 
     function checkRole($role){
         if ($role == ADMIN_ROLE) {
-            header('Location: admin/dashboard.php'); // <--- sementara
+            header('Location: admin/dashboard.php');
             die;
         } else if ($role == USER_ROLE) {
             header('Location: dashboard.php');

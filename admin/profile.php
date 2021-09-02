@@ -1,6 +1,6 @@
 <?php require_once 'core/init.php'; ?>
 
-<?php require_once '../a_profile.php'; ?>
+<?php require_once 'a_profile.php'; ?>
 
 <?php include '../partials/admin_header.php'; ?>
 

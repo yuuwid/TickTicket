@@ -161,10 +161,18 @@
     }
 
 
-
-
     function hapusAkun($id){
         $query = "DELETE FROM users WHERE id='$id'";
+
+        query($query);
+
+        return update();
+    }
+    
+    function nonaktifAkun($id){
+        $query = "UPDATE users SET 
+                    status = 0 
+                WHERE id='$id'";
 
         query($query);
 

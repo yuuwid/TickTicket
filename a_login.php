@@ -5,7 +5,9 @@
 
     
     if ( isset($_POST["login"]) ) {
+
         $status = loginAuth($_POST);
+
         if ( $status[0] != false ){
             $account = $status[0];
 
@@ -19,7 +21,7 @@
             }
             // check role account
             if ( $account['role'] == ADMIN_ROLE ){
-                header('Location: dashboard.php'); // <--- sementara
+                header('Location: admin/dashboard.php');
 
             } else if ( $account['role'] == USER_ROLE ) {
                 header('Location: dashboard.php');

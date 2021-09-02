@@ -48,7 +48,7 @@
 					<a class="dropdown-item" href="profile.php"><i class="fa fa-user pr-2"></i> Profile</a>
 
 					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="logout.php"><i class="fa fa-feather pr-2"></i> Keluar</a>
+					<a class="dropdown-item" href="../logout.php"><i class="fa fa-feather pr-2"></i> Keluar</a>
 
 				</div>
 			</div>

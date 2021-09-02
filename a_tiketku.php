@@ -21,8 +21,14 @@
     }
     
     usort($data_transaksi, function($a, $b){
-        return strtotime($a['tanggal_transaksi']) + strtotime($b['tanggal_transaksi']);
+        $ad = new DateTime($a['tanggal_transaksi']);
+        $bd = new DateTime($b['tanggal_transaksi']);
+      
+        if ($ad == $bd) {
+          return 0;
+        }
+      
+        return $ad > $bd ? -1 : 1;
     });
     
     $dd = $data_transaksi;
-    

@@ -9,12 +9,12 @@
     <?php if ($data['status'] == 0) : ?>
         <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
             <strong>Akun anda masih belum aktif.</strong> klik <a href="aktivasi.php?email=<?= $data['email'] ?>">disini</a> untuk melakukan aktivasi akun.
+
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
     <?php endif; ?>
-
     <?php if (isset($error[0])) : ?>
         <?php if ($error[0] == true) : ?>
             <?php if ($error[1] == PIN_ERROR) : ?>
@@ -25,10 +25,10 @@
                     </button>
                 </div>
             <?php endif; ?>
-            
-        <?php elseif($error[0] == false) : ?>
+
+        <?php elseif ($error[0] == false) : ?>
             <div class="alert alert-success alert-dismissible fade show mt-5" role="alert">
-                <strong>Akun berhasil dihapus</strong>
+                <strong>Sukses</strong>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -44,10 +44,10 @@
             <div class="col mb-4">
                 <div class="card bg-info text-light">
                     <div class="card-header">
-                        <b>Users Aktif</b>
+                        <b>Total Users</b>
                     </div>
                     <div class="card-body text-center">
-                        <h2 class="card-title">10</h2>
+                        <h2 class="card-title"><?= sizeof($users) ?></h2>
                         <h6>User</h6>
                     </div>
                 </div>
@@ -56,11 +56,11 @@
             <div class="col mb-4">
                 <div class="card bg-success text-light">
                     <div class="card-header">
-                        <b>Total Users</b>
+                        <b>Total Admin</b>
                     </div>
                     <div class="card-body text-center">
-                        <h2 class="card-title">15</h2>
-                        <h6>User</h6>
+                        <h2 class="card-title"><?= sizeof($admins) ?></h2>
+                        <h6>Admin</h6>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                         <b>Total Transaksi</b>
                     </div>
                     <div class="card-body text-center">
-                        <h2 class="card-title">3</h2>
+                        <h2 class="card-title"><?= sizeof($histori) ?></h2>
                         <h6>Transaksi</h6>
                     </div>
                 </div>
@@ -84,6 +84,7 @@
                     </div>
                     <div class="card-body text-center">
                         <h2 class="card-title">1</h2>
+                        <!---->
                         <h6>Perusahaan</h6>
                     </div>
                 </div>
@@ -103,7 +104,7 @@
                         <th>ID transaksi</th>
                         <th>Tanggal Transaksi</th>
                         <th>Jenis</th>
-                        <th>?</th>
+                        <th class="text-right""><i class=" fa fa-bars"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -115,7 +116,10 @@
                             <td><?= $h['id'] ?></td>
                             <td><?= $h['tanggal_transaksi'] ?></td>
                             <td><?= $h['jenis'] ?></td>
-                            <td>
+                            <td class="text-right">
+                                <button class="btn btn-sm badge badge-info text-light p-2 pl-3 pr-3">
+                                    <i class="fa fa-info" data-toggle="tooltip" data-placement="bottom" title="Detail"></i>
+                                </button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -133,7 +137,7 @@
                         <th>Username</th>
                         <th>Nama Lengkap</th>
                         <th>Status</th>
-                        <th class="text-center""><i class=" fa fa-bars"></i></th>
+                        <th class="text-right""><i class=" fa fa-bars"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -144,15 +148,12 @@
                             <td><?= $user['username'] ?></td>
                             <td><?= $user['nama'] ?></td>
                             <td><?= ($user['status'] == 0) ? "Belum Aktif" : "Aktif"   ?></td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-sm badge badge-danger text-light p-2" data-toggle="modal" data-target="#exampleModal" data-whatever="<?= $user['id'] ?>">
+                            <td class="text-right">
+                                <button type="button" class="btn btn-sm badge badge-danger text-light p-2" data-toggle="modal" data-target="#usersModal" data-dataid="<?= $user['id'] ?>" data-nameinput="hapus_id"> 
                                     <i class="fa fa-user-slash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
                                 </button>
-                                <button class="btn btn-sm badge badge-warning text-light p-2">
+                                <button type="button" class="btn btn-sm badge badge-warning text-light p-2" data-toggle="modal" data-target="#usersModal" data-dataid="<?= $user['id'] ?>" data-nameinput="bann_id"> 
                                     <i class="fa fa-user-lock" data-toggle="tooltip" data-placement="bottom" title="Nonaktikan"></i>
-                                </button>
-                                <button class="btn btn-sm badge badge-info text-light p-2">
-                                    <i class="fa fa-user-shield" data-toggle="tooltip" data-placement="bottom" title="Edit"></i>
                                 </button>
                             </td>
                         </tr>
@@ -171,7 +172,7 @@
                         <th>Username</th>
                         <th>Nama Lengkap</th>
                         <th>Status</th>
-                        <th class="text-center""><i class=" fa fa-bars"></i></th>
+                        <th class="text-right""><i class="fa fa-bars"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -180,12 +181,15 @@
                         <tr>
                             <td><?= $i++ ?></td>
                             <td><?= $admin['username'] ?></td>
-                            <td><?= $admin['nama'] ?></td>
+                            <td><?= $admin['nama']?> <?= ($admin['id'] == $id) ? "(Anda)" : ""  ?> </td>
                             <td><?= ($admin['status'] == 0) ? "Belum Aktif" : "Aktif"   ?></td>
-                            <td class="text-center">
-                                <button class="btn btn-sm badge badge-danger text-light p-2"><i class="fa fa-user-slash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i></button>
-                                <button class="btn btn-sm badge badge-warning text-light p-2"><i class="fa fa-user-lock" data-toggle="tooltip" data-placement="bottom" title="Nonaktikan"></i></button>
-                                <button class="btn btn-sm badge badge-info text-light p-2"><i class="fa fa-user-shield" data-toggle="tooltip" data-placement="bottom" title="Edit"></i></button>
+                            <td class="text-right">
+                                <button type="button" class="btn btn-sm badge badge-danger text-light p-2" data-toggle="modal" data-target="#usersModal" data-dataid="<?= $user['id'] ?>" data-nameinput="hapus_id"> 
+                                    <i class="fa fa-user-slash" data-toggle="tooltip" data-placement="bottom" title="Hapus"></i>
+                                </button>
+                                <button type="button" class="btn btn-sm badge badge-warning text-light p-2" data-toggle="modal" data-target="#usersModal" data-dataid="<?= $user['id'] ?>" data-nameinput="bann_id"> 
+                                    <i class="fa fa-user-lock" data-toggle="tooltip" data-placement="bottom" title="Nonaktikan"></i>
+                                </button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -196,11 +200,11 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="usersModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Apakah anda ingin menghapus akun ini ?</h5>
+                <h5 class="modal-title" id="usersModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
