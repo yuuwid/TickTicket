@@ -1,7 +1,7 @@
 # TickTicket
  
 ## Deksripsi
-TickTicket adalah sebuah Sistem atau Project Pemesanan Akomodasi secara Online seperti Tiket Pesawat, Tiket Kereta Api dan Pemesanan Hotel yang setidaknya bisa saya rampungkan sebesar 85% selama kurang lebih selama 1 Minggu (tidak teratur)
+TickTicket adalah sebuah Sistem atau Project Pemesanan Akomodasi secara Online seperti Tiket Pesawat, Tiket Kereta Api dan Pemesanan Hotel yang menggunakan konsep PHP-Native sebagai kerangka utamanya, Project ini mulai dibuat pada tanggal 21 Agustus 2021 dan setidaknya bisa saya rampungkan sebesar 85% selama kurang lebih 1 Minggu (tidak teratur).
 
 <br>
 
@@ -78,4 +78,4 @@ TickTicket adalah sebuah Sistem atau Project Pemesanan Akomodasi secara Online s
 <img src="images/hotel_pic.png" width="45%"></img> <img src="images/hotel2_pic.png" width="45%"></img>
 <img src="images/hotel3_pic.png" width="45%"></img> <img src="images/pilihkamar_pic.png" width="45%"></img>
 <img src="images/histori_pic.png" width="45%"></img> <img src="images/cetak_pic.png" width="45%"></img>
-<img src="images/hotel3_pic.png" width="45%"></img> <img src="images/profile_pic.png" width="45%"></img>
+<img src="images/admin_pic.png" width="45%"></img> <img src="images/profile_pic.png" width="45%"></img>
